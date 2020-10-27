@@ -1,15 +1,19 @@
 package com.thoughtworks.capability.gtb.entrancequiz.service;
 
 import com.thoughtworks.capability.gtb.entrancequiz.domain.Student;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class AppService {
     private List<Student> studentList;
 
     public AppService() {
+        studentList = new ArrayList<>();
         studentList.add(new Student(1, "成吉思汗"));
         studentList.add(new Student(2, "鲁班七号"));
         studentList.add(new Student(3, "太乙真人"));
