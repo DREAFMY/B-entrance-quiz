@@ -1,16 +1,16 @@
 package com.thoughtworks.capability.gtb.entrancequiz.service;
 
 import com.thoughtworks.capability.gtb.entrancequiz.domain.Student;
+import com.thoughtworks.capability.gtb.entrancequiz.domain.Team;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class AppService {
     private List<Student> studentList;
+    private List<Team> teamList;
 
     public AppService() {
         studentList = new ArrayList<>();
@@ -33,5 +33,23 @@ public class AppService {
 
     public List<Student> getStudentList() {
         return studentList;
+    }
+
+    public void addStudent(String name) {
+        studentList.add(new Student(studentList.size()+1,name));
+    }
+
+    public List<Team> getTeamList() {
+        studentList.stream().forEach(item -> {
+            item.setGroupId((int) (Math.random() * 100));
+        });
+        Collections.sort(studentList);
+        teamList = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+        }
+        studentList.stream().forEach(item -> {
+
+        });
+        return null;
     }
 }
