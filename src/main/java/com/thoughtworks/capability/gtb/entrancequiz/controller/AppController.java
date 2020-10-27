@@ -25,4 +25,10 @@ public class AppController {
         appService.addStudent(name);
         return ResponseEntity.created(null).build();
     }
+
+    @GetMapping("/team")
+    @CrossOrigin
+    public ResponseEntity getTeamList() {
+        return ResponseEntity.ok(appService.getTeamList());
+    }
 }
