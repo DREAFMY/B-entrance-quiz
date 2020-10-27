@@ -38,7 +38,8 @@ public class AppService {
     }
 
     public Map<Integer, List<Student>> getTeamList() {
-        Collections.shuffle(studentList);
+        List<Student> st = studentList.subList(0,studentList.size());
+        Collections.shuffle(st);
         Map<Integer, List<Student>> map = new HashMap<>();
         for (int i = 0; i < 6; i++) {
             List<Student> students = new ArrayList<>();
