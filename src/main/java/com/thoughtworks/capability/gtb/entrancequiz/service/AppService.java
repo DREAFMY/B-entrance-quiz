@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class AppService {
+    //TODO GTB-知识点: - AppService.java:11 数据存储相关的操作，不属于service的职责，应该抽取repository层做
     private List<Student> studentList;
 
     public AppService() {
@@ -37,14 +38,17 @@ public class AppService {
         studentList.add(new Student(studentList.size()+1,name));
     }
 
+    //TODO GTB-工程实践: - AppService.java:41 长方法，需要按模块抽取方法，进行重构
     public Map<Integer, List<Student>> getTeamList() {
         List<Student> st = new ArrayList<>(studentList);
         Collections.shuffle(st);
         Map<Integer, List<Student>> map = new HashMap<>();
+        //TODO GTB-工程实践: - AppService.java:45 Magic number 6， 5
         for (int i = 0; i < 6; i++) {
             List<Student> students = new ArrayList<>();
             map.put(i, students);
         }
+        //TODO GTB-工程实践: - AppService.java:51 命名不够表意
         int mark = studentList.size();
         int listIndex = 0;
         int groupIndex =0 ;
